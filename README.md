@@ -11,3 +11,11 @@ This is a sanity test to make sure that you have a working ruby environment with
 3. `bundle install`
 4. `ruby test/hello_test.rb` **or** `rake test` **or** `rake`
 
+The Hello test should be failing, with an error message something like this:
+
+```bash
+/ruby/lib/ruby/1.9.1/rubygems/custom_require.rb:36:in `require': cannot load such file -- ./lib/hello.rb (LoadError)
+	from /opt/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+	from test/hello_test.rb:4:in `<main>'
+```
+
