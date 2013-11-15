@@ -19,3 +19,5 @@ The Hello test should be failing, with an error message something like this:
 	from test/hello_test.rb:4:in `<main>'
 ```
 
+Should you feel compelled to make the test pass, we will not stand in your way.
+
