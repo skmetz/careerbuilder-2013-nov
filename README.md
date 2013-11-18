@@ -20,3 +20,11 @@ The Hello test should be failing, with an error message something like this:
 ```
 
 Should you feel compelled to make the test pass, we will not stand in your way.
+
+## Hints
+
+To run just a single test, do this:
+
+```bash
+ruby test/house_test.rb --name=test_horse_and_hound_and_horn
+```
