@@ -96,6 +96,16 @@ class HouseTest < MiniTest::Unit::TestCase
     assert_equal expected, song.verses(1, 3)
   end
 
+  def test_other_verses
+    skip
+    expected = ""
+    expected << "This is the rat that ate the malt that lay in the house that Jack built.\n\n"
+    expected << "This is the cat that killed the rat that ate the malt that lay in the house that Jack built.\n\n"
+    expected << "This is the dog that worried the cat that killed the rat that ate the malt that lay in the house that Jack built.\n\n"
+
+    assert_equal expected, song.verses(3, 5)
+  end
+
   def test_the_whole_song
     skip
     assert_equal song.verses(1, 12), song.sing
