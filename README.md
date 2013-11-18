@@ -20,4 +20,3 @@ The Hello test should be failing, with an error message something like this:
 ```
 
 Should you feel compelled to make the test pass, we will not stand in your way.
-
