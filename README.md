@@ -29,6 +29,11 @@ To run just a single test, do this:
 ruby test/house_test.rb --name=test_horse_and_hound_and_horn
 ```
 
+## Exercises
+
+* Look in the `adhoc` directory for ruby-related exercises
+* See `HALLOWEEN.md` for a TDD exercise
+
 ## The House that Jack Built
 
 ```plain
