@@ -32,7 +32,8 @@ ruby test/house_test.rb --name=test_horse_and_hound_and_horn
 ## Exercises
 
 * Look in the `adhoc` directory for ruby-related exercises
-* See `HALLOWEEN.md` for a TDD exercise
+* See `HALLOWEEN.md` for a basic TDD exercise
+* See `APPOINTMENT.md` for a larger TDD exercise
 
 ## The House that Jack Built
 
