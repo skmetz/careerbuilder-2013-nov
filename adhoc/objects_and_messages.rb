@@ -10,7 +10,7 @@
 # routine things.
 #
 # This file is a list of ruby commands. Open a Pry (or IRB)
-# session and experiement with them.
+# session and experiment with them.
 
 ###############################
 # a bit of simple math
