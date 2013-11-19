@@ -29,6 +29,7 @@ log("hello", 1000)
 #    point.
 #
 # To run the code, cd to the root of this project and type:
+#   > bundle install
 #   > ruby adhoc/exploring_with_pry.rb
 #
 # This will start a pry session in your terminal window. Now you can
