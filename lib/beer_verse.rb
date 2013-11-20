@@ -1,9 +1,9 @@
 class BottlesOfBeerVerse
   attr_reader :starting_bottle_count
-  
+
   def initialize(bottle_count)
     @starting_bottle_count = bottle_count
-  end    
+  end
 
   def to_s
     starting_count      = count(starting_bottle_count)
