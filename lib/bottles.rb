@@ -14,8 +14,15 @@ class BottlesSong
     starting.downto(ending).map { |n| verse(n) }.join("\n") + "\n"
   end
 
-  def verse(number)
-    @verse_class.new(number).to_s
+  def verse(starting_bottle_count)
+    @verse_class.new(strategy(starting_bottle_count)).to_s
   end
 
+  def strategy(starting_bottle_count)
+    begin
+      Object.const_get("VerseStrategy#{starting_bottle_count}")
+    rescue
+      VerseStrategy
+    end.new(starting_bottle_count)
+  end
 end

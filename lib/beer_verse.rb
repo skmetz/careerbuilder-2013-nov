@@ -1,83 +1,78 @@
-class StupidNameThatICannotBearToKeep
+class VerseStrategy
   attr_reader :starting_bottle_count
 
   def initialize(starting_bottle_count)
     @starting_bottle_count = starting_bottle_count
   end
 
-  def count
-    case starting_bottle_count
-    when -1
-      "99"
-    when 0
-      "No more"
-    when 1
-      "1"
-    else
-      starting_bottle_count
-    end
+  def starting_count
+    starting_bottle_count
   end
 
-  def containers
-    case starting_bottle_count
-    when 1
-      "bottle"
-    else
-      "bottles"
-    end
+  def starting_container
+    "bottles"
   end
 
   def action
-    "Take #{pronoun} down and pass it around, "
+    "Take one down and pass it around, "
   end
 
-  def pronoun
-    case starting_bottle_count
-    when 1
-      "it"
-    else
-      "one"
-    end
+  def ending_count
+    starting_bottle_count - 1
+  end
+
+  def ending_container
+    "bottles"
   end
 end
 
-class StupidNameThatICannotBearToKeep0 < StupidNameThatICannotBearToKeep
+class VerseStrategy0 < VerseStrategy
+  def starting_count
+    "No more"
+  end
+
   def action
     "Go to the store and buy some more, "
+  end
+
+  def ending_count
+    "99"
+  end
+end
+
+class VerseStrategy1 < VerseStrategy
+  def starting_count
+    "1"
+  end
+
+  def starting_container
+    "bottle"
+  end
+
+  def action
+    "Take it down and pass it around, "
+  end
+
+  def ending_count
+    "no more"
+  end
+end
+
+class VerseStrategy2 < VerseStrategy
+  def ending_container
+    "bottle"
   end
 end
 
 class BottlesOfBeerVerse
-  attr_reader :starting_bottle_count
+  attr_reader :strategy
 
-  def initialize(bottle_count)
-    @starting_bottle_count = bottle_count
+  def initialize(strategy)
+    @strategy = strategy
   end
 
   def to_s
-    starting_count      = count(starting_bottle_count)
-    starting_containers = containers(starting_bottle_count)
-    next_bottle_count   = starting_bottle_count - 1
-
-    "#{starting_count} #{starting_containers} of beer on the wall, #{starting_count.to_s.downcase} #{starting_containers} of beer.\n" +
-      action + "#{count(next_bottle_count).to_s.downcase} #{containers(next_bottle_count)} of beer on the wall.\n"
-  end
-
-  private
-
-  def count(bottle_count)
-    StupidNameThatICannotBearToKeep.new(bottle_count).count
-  end
-
-  def containers(bottle_count)
-    StupidNameThatICannotBearToKeep.new(bottle_count).containers
-  end
-
-  def action
-    if starting_bottle_count == 0
-      StupidNameThatICannotBearToKeep0.new(starting_bottle_count).action
-    else
-      StupidNameThatICannotBearToKeep.new(starting_bottle_count).action
-    end
+    "#{strategy.starting_count} #{strategy.starting_container} of beer on the wall, #{strategy.starting_count.to_s.downcase} #{strategy.starting_container} of beer.\n" +
+        strategy.action + "#{strategy.ending_count.to_s.downcase} #{strategy.ending_container} of beer on the wall.\n"
   end
 end
