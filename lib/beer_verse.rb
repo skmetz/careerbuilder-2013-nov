@@ -10,7 +10,7 @@ class BottlesOfBeerVerse
     starting_containers = containers(starting_bottle_count)
     next_bottle_count   = starting_bottle_count - 1
 
-    "#{starting_count} #{starting_containers} of beer on the wall, #{starting_count.downcase} #{starting_containers} of beer.\n" +
+    "#{starting_count} #{starting_containers} of beer on the wall, #{starting_count.to_s.downcase} #{starting_containers} of beer.\n" +
       action + "#{count(next_bottle_count).to_s.downcase} #{containers(next_bottle_count)} of beer on the wall.\n"
   end
 
