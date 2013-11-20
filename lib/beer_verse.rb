@@ -1,3 +1,52 @@
+class StupidNameThatICannotBearToKeep
+  attr_reader :starting_bottle_count
+
+  def initialize(starting_bottle_count)
+    @starting_bottle_count = starting_bottle_count
+  end
+
+  def count
+    case starting_bottle_count
+    when -1
+      "99"
+    when 0
+      "No more"
+    when 1
+      "1"
+    else
+      starting_bottle_count
+    end
+  end
+
+  def containers
+    case starting_bottle_count
+    when 1
+      "bottle"
+    else
+      "bottles"
+    end
+  end
+
+  def action
+    "Take #{pronoun} down and pass it around, "
+  end
+
+  def pronoun
+    case starting_bottle_count
+    when 1
+      "it"
+    else
+      "one"
+    end
+  end
+end
+
+class StupidNameThatICannotBearToKeep0 < StupidNameThatICannotBearToKeep
+  def action
+    "Go to the store and buy some more, "
+  end
+end
+
 class BottlesOfBeerVerse
   attr_reader :starting_bottle_count
 
@@ -17,43 +66,18 @@ class BottlesOfBeerVerse
   private
 
   def count(bottle_count)
-    case bottle_count
-    when -1
-      "99"
-    when 0
-      "No more"
-    when 1
-      "1"
-    else
-      bottle_count
-    end
+    StupidNameThatICannotBearToKeep.new(bottle_count).count
   end
 
   def containers(bottle_count)
-    case bottle_count
-    when 1
-      "bottle"
-    else
-      "bottles"
-    end
+    StupidNameThatICannotBearToKeep.new(bottle_count).containers
   end
 
   def action
-    case starting_bottle_count
-    when 0
-      "Go to the store and buy some more, "
+    if starting_bottle_count == 0
+      StupidNameThatICannotBearToKeep0.new(starting_bottle_count).action
     else
-      "Take #{pronoun} down and pass it around, "
+      StupidNameThatICannotBearToKeep.new(starting_bottle_count).action
     end
   end
-
-  def pronoun
-    case starting_bottle_count
-    when 1
-      "it"
-    else
-      "one"
-    end
-  end
-
 end
